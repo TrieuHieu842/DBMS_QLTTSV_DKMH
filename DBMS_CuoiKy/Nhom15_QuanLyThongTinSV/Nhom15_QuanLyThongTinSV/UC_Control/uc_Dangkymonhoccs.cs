@@ -31,6 +31,19 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
 
         private void btnTim_Click(object sender, EventArgs e)
         {
+            if (cbNamHoc.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn Năm học!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbNamHoc.Focus();
+                return;
+            }
+
+            if (cbHocky.SelectedIndex == -1)
+            {
+                MessageBox.Show("Vui lòng chọn Học kỳ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbHocky.Focus();
+                return;
+            }
             string namHoc = cbNamHoc.SelectedItem?.ToString();
             string hocKy = cbHocky.SelectedItem?.ToString();
             DataTable dt = new DataTable();
