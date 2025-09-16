@@ -56,7 +56,7 @@ Module này quản lý toàn bộ quy trình **Đăng ký môn học** cho sinh 
 ---
 
 ## 👨‍💻 Công nghệ sử dụng
-- **SQL Server 2012**: quản lý CSDL.
+- **SQL Server**: quản lý CSDL.
 - **C# WinForms**: giao diện đăng ký môn học.
 - **Stored Procedure + Trigger + Function**: xử lý logic nghiệp vụ tại database.
 
