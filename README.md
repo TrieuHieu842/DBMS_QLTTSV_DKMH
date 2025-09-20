@@ -1,4 +1,5 @@
 # 📘 HỆ THỐNG ĐĂNG KÝ MÔN HỌC - ĐỒ ÁN QUẢN LÝ THÔNG TIN SINH VIÊN CNTT
+# Môn học: Hệ quản trị Cơ sở dữ liệu (DBMS)
 
 ## 📌 Giới thiệu
 Đây là module chính của đồ án **Hệ thống quản lý thông tin sinh viên CNTT**, tập trung vào **chức năng Đăng ký môn học**.  
