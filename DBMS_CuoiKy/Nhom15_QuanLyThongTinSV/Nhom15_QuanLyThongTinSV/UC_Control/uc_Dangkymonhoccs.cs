@@ -89,69 +89,42 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
 
         private void dgv_dshp_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string namHoc = cbNamHoc.SelectedItem?.ToString();
-            string hocKy = cbHocky.SelectedItem?.ToString();
-
             if (e.RowIndex >= 0 && dgv_dshp.Columns[e.ColumnIndex].Name == "btnDangky")
             {
                 string maHP = dgv_dshp.Rows[e.RowIndex].Cells["MaHP"].Value.ToString();
+                string namHoc = cbNamHoc.SelectedItem?.ToString();
+                string hocKy = cbHocky.SelectedItem?.ToString();
 
                 try
                 {
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-
-                        // 1. Gọi sp_datDieuKien để kiểm tra
-                        using (SqlCommand checkCmd = new SqlCommand("sp_datDieuKien", conn))
+                        using (SqlCommand cmd = new SqlCommand("sp_DKMH", conn))
                         {
-                            checkCmd.CommandType = CommandType.StoredProcedure;
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@MaSV", mssv);
+                            cmd.Parameters.AddWithValue("@MaHP", maHP);
+                            cmd.Parameters.AddWithValue("@HocKy", hocKy);
+                            cmd.Parameters.AddWithValue("@NamHoc", namHoc);
 
-                            checkCmd.Parameters.AddWithValue("@MaSV", mssv);
-                            checkCmd.Parameters.AddWithValue("@MaHP", maHP);
-                            checkCmd.Parameters.AddWithValue("@NamHoc", namHoc);
-                            checkCmd.Parameters.AddWithValue("@HocKy", hocKy);
-
-                            SqlParameter ketQuaParam = new SqlParameter("@KetQua", SqlDbType.NVarChar, 100);
-                            ketQuaParam.Direction = ParameterDirection.Output;
-                            checkCmd.Parameters.Add(ketQuaParam);
-
-                            // Thực thi
-                            checkCmd.ExecuteNonQuery();
-
-                            string ketQua = ketQuaParam.Value?.ToString();
-
-                            if (ketQua == "DaDangKy")
-                            {
-                                MessageBox.Show("Bạn đã đăng ký học phần này rồi!", "Thông báo");
-                            }
-                            else if (ketQua != null && ketQua.StartsWith("Đủ điều kiện"))
-                            {
-                                // 2. Thực hiện đăng ký
-                                using (SqlCommand insertCmd = new SqlCommand("sp_DKMH", conn))
-                                {
-                                    insertCmd.CommandType = CommandType.StoredProcedure;
-                                    insertCmd.Parameters.AddWithValue("@MaSV", mssv);
-                                    insertCmd.Parameters.AddWithValue("@MaHP", maHP);
-                      
-
-                                    insertCmd.ExecuteNonQuery();
-                                }
-
-                                MessageBox.Show($"Đăng ký thành công học phần {maHP}!", "Thông báo");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Không cho phép: " + ketQua);
-                            }
+                            cmd.ExecuteNonQuery();
                         }
+
+                        MessageBox.Show($"Đăng ký thành công học phần {maHP}!", "Thông báo");
                     }
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show("Lỗi khi đăng ký: " + ex.Message);
+                    // Nếu sp_DKMH raise error (vd: trùng lịch, quá tín chỉ, đầy lớp...) thì báo ra
+                    MessageBox.Show("Không thể đăng ký: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+
+        }
+
+        private void uc_Dangkymonhoccs_Load(object sender, EventArgs e)
+        {
 
         }
     }

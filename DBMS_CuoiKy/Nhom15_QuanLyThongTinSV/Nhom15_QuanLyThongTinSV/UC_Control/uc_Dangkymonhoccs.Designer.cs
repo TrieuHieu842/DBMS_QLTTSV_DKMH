@@ -33,10 +33,10 @@
             this.cbHocky = new System.Windows.Forms.ComboBox();
             this.cbNamHoc = new System.Windows.Forms.ComboBox();
             this.dgv_dshp = new System.Windows.Forms.DataGridView();
-            this.btnDangky = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblDshp = new System.Windows.Forms.Label();
             this.lblNamHoc = new System.Windows.Forms.Label();
             this.lblHocky = new System.Windows.Forms.Label();
+            this.btnDangky = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,6 +82,7 @@
             // 
             // dgv_dshp
             // 
+            this.dgv_dshp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_dshp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_dshp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnDangky});
@@ -92,15 +93,6 @@
             this.dgv_dshp.Size = new System.Drawing.Size(997, 460);
             this.dgv_dshp.TabIndex = 3;
             this.dgv_dshp.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_dshp_CellContentClick);
-            // 
-            // btnDangky
-            // 
-            this.btnDangky.HeaderText = "Đăng ký";
-            this.btnDangky.MinimumWidth = 8;
-            this.btnDangky.Name = "btnDangky";
-            this.btnDangky.Text = "Đăng ký";
-            this.btnDangky.UseColumnTextForButtonValue = true;
-            this.btnDangky.Width = 150;
             // 
             // lblDshp
             // 
@@ -132,6 +124,16 @@
             this.lblHocky.TabIndex = 6;
             this.lblHocky.Text = "Học kỳ:";
             // 
+            // btnDangky
+            // 
+            this.btnDangky.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.btnDangky.HeaderText = "Đăng ký";
+            this.btnDangky.MinimumWidth = 8;
+            this.btnDangky.Name = "btnDangky";
+            this.btnDangky.Text = "Đăng ký";
+            this.btnDangky.UseColumnTextForButtonValue = true;
+            this.btnDangky.Width = 73;
+            // 
             // uc_Dangkymonhoccs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -146,6 +148,7 @@
             this.Controls.Add(this.btnTim);
             this.Name = "uc_Dangkymonhoccs";
             this.Size = new System.Drawing.Size(1085, 667);
+            this.Load += new System.EventHandler(this.uc_Dangkymonhoccs_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_dshp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

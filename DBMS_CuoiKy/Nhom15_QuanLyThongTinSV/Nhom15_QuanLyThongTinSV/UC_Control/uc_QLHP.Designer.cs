@@ -86,6 +86,7 @@
             // 
             // dgvQLHP
             // 
+            this.dgvQLHP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvQLHP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvQLHP.Location = new System.Drawing.Point(25, 292);
             this.dgvQLHP.Name = "dgvQLHP";

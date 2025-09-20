@@ -18,9 +18,57 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
         {
             InitializeComponent();
         }
+        private bool ValidateInput()
+        {
+            if (string.IsNullOrWhiteSpace(txtMaHP.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Mã học phần!");
+                txtMaHP.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtMaMH.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Mã môn học!");
+                txtMaMH.Focus();
+                return false;
+            }
+            if (cbHocKy.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng chọn Học kỳ!");
+                cbHocKy.DroppedDown = true;
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtNamHoc.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Năm học!");
+                txtNamHoc.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtGiangVien.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Giảng viên!");
+                txtGiangVien.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtTKB.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Thời khóa biểu!");
+                txtTKB.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(txtPhonghoc.Text))
+            {
+                MessageBox.Show("Vui lòng nhập Phòng học!");
+                txtPhonghoc.Focus();
+                return false;
+            }
+            return true;
+        }
+
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (!ValidateInput()) return;
             string sql = "sp_ThemHocPhan";
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(sql, conn))
@@ -51,6 +99,7 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (!ValidateInput()) return;
             string sql = "sp_SuaHocPhan";
             using (SqlConnection conn = new SqlConnection(connectionString))
             using (SqlCommand cmd = new SqlCommand(sql, conn))

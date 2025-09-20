@@ -22,11 +22,8 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
             this.mssv = mssv;
             this.hoTen = hoten;
         }
-
-        private void uc_danhsachhocphandangky_Load(object sender, EventArgs e)
+        private void LoadData()
         {
-            lblMSSV.Text = "MSSV: " + mssv;
-            lblHovaTen.Text = "Họ và tên: "+ hoTen;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
@@ -36,6 +33,7 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@MaSV", mssv);
+
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -44,12 +42,24 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
             }
         }
 
+
+        private void uc_danhsachhocphandangky_Load(object sender, EventArgs e)
+        {
+            lblMSSV.Text = "MSSV: " + mssv;
+            lblHovaTen.Text = "Họ và tên: " + hoTen;
+            LoadData();
+        }
+
         private void dgv_danhsachhocphandadangky_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0 && dgv_danhsachhocphandadangky.Columns[e.ColumnIndex].Name == "btnHuyDK")
             {
                 string maHP = dgv_danhsachhocphandadangky.Rows[e.RowIndex].Cells["MaHP"].Value.ToString();
-
+                if (string.IsNullOrEmpty(maHP))
+                {
+                    MessageBox.Show("Không tìm thấy mã học phần!", "Lỗi");
+                    return;
+                }
                 DialogResult result = MessageBox.Show(
                     $"Bạn có chắc muốn hủy đăng ký học phần {maHP} không?",
                     "Xác nhận",
@@ -77,7 +87,7 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
                             {
                                 MessageBox.Show($"Đã hủy đăng ký học phần {maHP}!", "Thông báo");
                                 // Cập nhật lại danh sách
-                                uc_danhsachhocphandangky_Load(sender, e);
+                                LoadData();
                             }
                             else
                             {

@@ -52,8 +52,6 @@ namespace Nhom15_QuanLyThongTinSV
 
         private void btnHocPhanDaDangky_Click(object sender, EventArgs e)
         {
-            mssv = mssv;
-            hoten =hoten;
             panel_DKMH.Controls.Clear();
             uc_danhsachhocphandangky ucDSHP = new uc_danhsachhocphandangky(mssv,hoten);
             ucDSHP.Dock = DockStyle.Fill;

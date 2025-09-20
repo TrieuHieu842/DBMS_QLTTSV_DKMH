@@ -88,12 +88,13 @@
             // 
             // dgv_tracuuhocphan
             // 
+            this.dgv_tracuuhocphan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_tracuuhocphan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_tracuuhocphan.Location = new System.Drawing.Point(33, 242);
+            this.dgv_tracuuhocphan.Location = new System.Drawing.Point(38, 242);
             this.dgv_tracuuhocphan.Name = "dgv_tracuuhocphan";
             this.dgv_tracuuhocphan.RowHeadersWidth = 62;
             this.dgv_tracuuhocphan.RowTemplate.Height = 28;
-            this.dgv_tracuuhocphan.Size = new System.Drawing.Size(1104, 472);
+            this.dgv_tracuuhocphan.Size = new System.Drawing.Size(948, 452);
             this.dgv_tracuuhocphan.TabIndex = 5;
             // 
             // lblTittle
@@ -155,7 +156,8 @@
             this.Controls.Add(this.lblMahocphan);
             this.Controls.Add(this.btnTimKiem);
             this.Name = "uc_Tracuuhocphan";
-            this.Size = new System.Drawing.Size(1183, 740);
+            this.Size = new System.Drawing.Size(1090, 740);
+            this.Load += new System.EventHandler(this.uc_Tracuuhocphan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_tracuuhocphan)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

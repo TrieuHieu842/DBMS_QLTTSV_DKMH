@@ -39,8 +39,18 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy học phần nào phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 dgv_tracuuhocphan.DataSource = dt;
             }
+        }
+
+        private void uc_Tracuuhocphan_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

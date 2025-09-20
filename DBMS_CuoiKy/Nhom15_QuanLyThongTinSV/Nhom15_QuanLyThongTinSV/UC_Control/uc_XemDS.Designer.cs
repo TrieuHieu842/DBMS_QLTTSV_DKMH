@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.dgv_QLHP = new System.Windows.Forms.DataGridView();
+            this.btnXem = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblSiso = new System.Windows.Forms.Label();
             this.btnXuatDS = new System.Windows.Forms.Button();
-            this.btnXem = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_QLHP)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_QLHP
             // 
+            this.dgv_QLHP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_QLHP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_QLHP.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnXem});
@@ -47,6 +48,15 @@
             this.dgv_QLHP.Size = new System.Drawing.Size(951, 442);
             this.dgv_QLHP.TabIndex = 2;
             this.dgv_QLHP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_QLHP_CellContentClick);
+            // 
+            // btnXem
+            // 
+            this.btnXem.HeaderText = "";
+            this.btnXem.MinimumWidth = 8;
+            this.btnXem.Name = "btnXem";
+            this.btnXem.Text = "Xem DS";
+            this.btnXem.UseColumnTextForButtonValue = true;
+            this.btnXem.Visible = false;
             // 
             // lblSiso
             // 
@@ -69,16 +79,6 @@
             this.btnXuatDS.Text = "Xuất ra File";
             this.btnXuatDS.UseVisualStyleBackColor = true;
             this.btnXuatDS.Click += new System.EventHandler(this.btnXuatDS_Click);
-            // 
-            // btnXem
-            // 
-            this.btnXem.HeaderText = "";
-            this.btnXem.MinimumWidth = 8;
-            this.btnXem.Name = "btnXem";
-            this.btnXem.Text = "Xem DS";
-            this.btnXem.UseColumnTextForButtonValue = true;
-            this.btnXem.Visible = false;
-            this.btnXem.Width = 150;
             // 
             // uc_XemDS
             // 

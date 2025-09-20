@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.dgv_danhsachhocphandadangky = new System.Windows.Forms.DataGridView();
-            this.btnHuyDK = new System.Windows.Forms.DataGridViewButtonColumn();
             this.lblDanhsach = new System.Windows.Forms.Label();
             this.lblMSSV = new System.Windows.Forms.Label();
             this.lblHovaTen = new System.Windows.Forms.Label();
+            this.btnHuyDK = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_danhsachhocphandadangky)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_danhsachhocphandadangky
             // 
+            this.dgv_danhsachhocphandadangky.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_danhsachhocphandadangky.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_danhsachhocphandadangky.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.btnHuyDK});
@@ -45,18 +46,9 @@
             this.dgv_danhsachhocphandadangky.Name = "dgv_danhsachhocphandadangky";
             this.dgv_danhsachhocphandadangky.RowHeadersWidth = 62;
             this.dgv_danhsachhocphandadangky.RowTemplate.Height = 28;
-            this.dgv_danhsachhocphandadangky.Size = new System.Drawing.Size(871, 487);
+            this.dgv_danhsachhocphandadangky.Size = new System.Drawing.Size(941, 487);
             this.dgv_danhsachhocphandadangky.TabIndex = 0;
             this.dgv_danhsachhocphandadangky.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_danhsachhocphandadangky_CellContentClick);
-            // 
-            // btnHuyDK
-            // 
-            this.btnHuyDK.HeaderText = "HuyDK";
-            this.btnHuyDK.MinimumWidth = 8;
-            this.btnHuyDK.Name = "btnHuyDK";
-            this.btnHuyDK.Text = "Hủy đăng ký";
-            this.btnHuyDK.UseColumnTextForButtonValue = true;
-            this.btnHuyDK.Width = 150;
             // 
             // lblDanhsach
             // 
@@ -87,6 +79,16 @@
             this.lblHovaTen.Size = new System.Drawing.Size(142, 32);
             this.lblHovaTen.TabIndex = 3;
             this.lblHovaTen.Text = "Họ và tên:";
+            // 
+            // btnHuyDK
+            // 
+            this.btnHuyDK.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.btnHuyDK.HeaderText = "";
+            this.btnHuyDK.MinimumWidth = 8;
+            this.btnHuyDK.Name = "btnHuyDK";
+            this.btnHuyDK.Text = "Hủy đăng ký";
+            this.btnHuyDK.UseColumnTextForButtonValue = true;
+            this.btnHuyDK.Width = 27;
             // 
             // uc_danhsachhocphandangky
             // 

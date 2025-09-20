@@ -28,6 +28,12 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
         {
             try
             {
+                if (string.IsNullOrEmpty(maHP))
+                {
+                    MessageBox.Show("Vui lòng chọn học phần trước khi xuất danh sách!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
                 // Tạo ứng dụng Excel
                 Excel.Application excelApp = new Excel.Application();
                 excelApp.Visible = false; // Không bật Excel lên khi chạy
@@ -35,7 +41,7 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
                 // Tạo workbook và worksheet
                 Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
                 Excel.Worksheet worksheet = (Excel.Worksheet)workbook.ActiveSheet;
-                worksheet.Name = "DanhSach";
+                worksheet.Name = "DanhSach_" + maHP;
 
                 // Xuất tiêu đề cột từ DataGridView
                 for (int i = 1; i <= dgv_QLHP.Columns.Count; i++)
@@ -51,11 +57,12 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
                         worksheet.Cells[i + 2, j + 1] = dgv_QLHP.Rows[i].Cells[j].Value?.ToString();
                     }
                 }
-                string fileName = maHP;
                 // Lưu file Excel
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
-                saveFileDialog.Filter = fileName + "|*.xlsx";
-                saveFileDialog.Title = "D:\\MonHoc\\N3_HK1\\DBMS\\DBMS_CuoiKy";
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Lưu danh sách sinh viên";
+                saveFileDialog.FileName = $"DanhSach_{maHP}.xlsx";
+                saveFileDialog.InitialDirectory = @"D:\MonHoc\N3_HK1\DBMS\DBMS_CuoiKy";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     workbook.SaveAs(saveFileDialog.FileName);

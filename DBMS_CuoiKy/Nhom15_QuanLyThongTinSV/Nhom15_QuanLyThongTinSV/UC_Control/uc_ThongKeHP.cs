@@ -31,7 +31,7 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
                 try
                 {
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
@@ -44,9 +44,5 @@ namespace Nhom15_QuanLyThongTinSV.UC_Control
             }
         }
 
-        public static implicit operator uc_ThongKeHP(uc_QLHP v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
