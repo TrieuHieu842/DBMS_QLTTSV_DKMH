@@ -1,4 +1,4 @@
-# 📘 HỆ THỐNG ĐĂNG KÝ MÔN HỌC - ĐỒ ÁN QUẢN LÝ THÔNG TIN SINH VIÊN CNTT
+# 📘 HỆ THỐNG ĐĂNG KÝ MÔN HỌC - ĐỒ ÁN QUẢN LÝ THÔNG TIN SINH VIÊN KHOA CNTT
 # Môn học: Hệ quản trị Cơ sở dữ liệu (DBMS)
 
 ## 📌 Giới thiệu
